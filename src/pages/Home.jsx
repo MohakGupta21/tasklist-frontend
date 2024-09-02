@@ -15,12 +15,16 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = Cookies.get('token');
-
+    const params = new URLSearchParams(location.search);
+    // console.log(params);
+    const token = params.get("token");
+    // console.log(token);
     if(token){
       // console.log(token);
       updateToken(token);
       // window.location.reload();
+      navigate(window.location.pathname, { replace: true });
+
     }
 
     
