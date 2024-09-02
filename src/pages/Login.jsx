@@ -12,7 +12,7 @@ function Login() {
   useEffect(()=>{
     const params = new URLSearchParams(location.search);
     const msg = params.get("message");
-    // console.log(error);
+    console.log(msg);
     if(msg){
       // console.log(error);
       alert(msg);
