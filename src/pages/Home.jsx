@@ -16,13 +16,11 @@ function Home() {
 
   useEffect(() => {
     const token = Cookies.get('token');
-    
+
     if(token){
       // console.log(token);
       updateToken(token);
       // window.location.reload();
-      navigate(window.location.pathname, { replace: true });
-
     }
 
     
