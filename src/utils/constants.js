@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://tasklist-backend-0u3k.onrender.com';
