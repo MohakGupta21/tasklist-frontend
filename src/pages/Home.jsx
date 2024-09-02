@@ -15,10 +15,8 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    // console.log(params);
-    const token = params.get("token");
-    // console.log(token);
+    const token = Cookies.get('token');
+    
     if(token){
       // console.log(token);
       updateToken(token);
