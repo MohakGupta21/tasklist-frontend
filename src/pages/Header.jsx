@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import Icon from "../assets/icon.png";
+import Icon from "/icon.png";
 import useTaskStore from "../store/user";
 import { logout } from "../utils/signinFunc";
 function Header() {
