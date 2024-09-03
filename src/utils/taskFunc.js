@@ -109,24 +109,3 @@ export const createTask = async (title, desc, statusVal) => {
   
   
 };
-
-export const getTaskById = async (taskId) =>{
-  try {
-    const email = useTaskStore.getState().user;
-    console.log(email);
-    const response = await apiInstance.get(`/task/get/${taskId}`,{
-      params:{email:email}
-    })
-    const data = response.data;
-    // console.log(data);
-    return {data, error:null}
-    
-  } catch (error) {
-    console.error("Failed to get task:", error);
-    // Handle error (e.g., rollback changes in the UI)
-    return {
-      data: null,
-      status: error.response.data?.detail || "Something went wrong",
-    };
-  }
-}

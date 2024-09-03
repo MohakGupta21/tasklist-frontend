@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getTaskById, updateTaskPut } from "../utils/taskFunc";
+import { updateTaskPut } from "../utils/taskFunc";
 import useTaskStore from "../store/user";
 
 function Edit() {
@@ -8,27 +8,28 @@ function Edit() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const navigate = useNavigate();
+  const initialize = useTaskStore((state) => state.initialize);
 
   useEffect(()=>{
+    initialize();
     const id = params.id;
-    // const task = useTaskStore.getState().tasks.filter((task)=>task._id===id);
+    const task = useTaskStore.getState().tasks.filter((task)=>task._id===id);
 
-    // setTitle(task[0]?.title||"");
-    // setDesc(task[0]?.desc||"");
-    // setCreatedAt(task[0]?.createdAt||"");
-    async function fetchData() {
-      const {data,error} = await getTaskById(id);
+    setTitle(task[0]?.title||"");
+    setDesc(task[0]?.desc||"");
+    // async function fetchData() {
+    //   const {data,error} = await getTaskById(id);
 
-      if(data){
-        // console.log(data);
-        setTitle(data?.title);
-        setDesc(data?.desc);
-      }
-      else{
-        console.log(error);
-      }
-    }
-    fetchData();
+    //   if(data){
+    //     // console.log(data);
+    //     setTitle(data?.title);
+    //     setDesc(data?.desc);
+    //   }
+    //   else{
+    //     console.log(error);
+    //   }
+    // }
+    // fetchData();
 
   },[])
 
