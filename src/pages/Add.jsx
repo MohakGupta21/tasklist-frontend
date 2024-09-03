@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { createTask } from "../utils/taskFunc";
 
 function Add() {
-  const [title, setTitle] = useState("title");
-  const [desc, setDesc] = useState("desc");
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   const [status,setStatus] = useState("todo");
   const navigate = useNavigate('/');
 
@@ -30,6 +30,8 @@ function Add() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="new-input w-100"
+              placeholder="Enter Title"
+              required
             />
           </div>
           <div className="mb-3">
@@ -42,6 +44,8 @@ function Add() {
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
               className="new-input w-100"
+              placeholder="Enter Description"
+              required
             />
           </div>
           <div className="mb-3">
@@ -54,6 +58,7 @@ function Add() {
               id="select"
               className="form-select"
               aria-label="Default select example"
+              required
             >
               <option defaultValue="todo">todo</option>
               <option defaultValue="in progress">in progress</option>
