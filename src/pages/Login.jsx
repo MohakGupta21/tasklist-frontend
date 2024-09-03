@@ -23,8 +23,11 @@ function Login() {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
-    await login(email,password);
-    navigate('/');
+    const {data,error} = await login(email,password);
+    if(error)
+      alert(error);
+    else
+      navigate('/');
 
   }
 

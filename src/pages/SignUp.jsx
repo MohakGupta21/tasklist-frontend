@@ -32,8 +32,12 @@ function SignUp() {
       alert("Passwords do not match!")
     }
     else{
-      await signup(fname,lname,email,password,password2);
-      navigate('/');
+      const {data,error} = await signup(fname,lname,email,password,password2);
+
+      if(error)
+        alert(error);
+      else
+        navigate('/');
     }
   }
 
