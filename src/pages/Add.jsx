@@ -30,7 +30,6 @@ function Add() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="new-input w-100"
-              placeholder="Enter Title"
               required
             />
           </div>
@@ -44,7 +43,6 @@ function Add() {
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
               className="new-input w-100"
-              placeholder="Enter Description"
               required
             />
           </div>
