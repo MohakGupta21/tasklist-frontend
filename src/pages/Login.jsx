@@ -12,7 +12,7 @@ function Login() {
   useEffect(()=>{
     const params = new URLSearchParams(location.search);
     const msg = params.get("message");
-    console.log(msg);
+    // console.log(msg);
     if(msg){
       // console.log(error);
       alert(msg);
@@ -24,8 +24,10 @@ function Login() {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const {data,error} = await login(email,password);
-    if(error)
+    if(error){
       alert(error);
+      // window.location.reload();
+    }
     else
       navigate('/');
 

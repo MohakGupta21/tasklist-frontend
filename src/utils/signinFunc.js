@@ -19,11 +19,15 @@ export const login = async (email, password) => {
       alert('Signed In Successfully!');
       return { data: data, error: null };
     }
+    else{
+      alert('Signed in failed');
+      // console.log(data);
+    }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       data: null,
-      status: error.response?.data?.detail || 'Something went wrong',
+      error: error.response?.data?.error || 'Something went wrong',
     };
   }
 };
@@ -52,10 +56,10 @@ export const signup = async (
 
     return { data, error: null };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       data: null,
-      error: error.response || "Something went wrong",
+      error: error.response?.data?.message || "Something went wrong",
     };
   }
 };
