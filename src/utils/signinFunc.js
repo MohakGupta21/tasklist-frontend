@@ -52,7 +52,7 @@ export const signup = async (
     await login(email, password);
 
     //Alert - Sign Up Successfully
-    alert("Sign In successfully")
+    // alert("Sign In successfully")
 
     return { data, error: null };
   } catch (error) {
